@@ -8,8 +8,8 @@ import javax.net.ssl.ExtendedSSLSession;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 //import static javatutorial.javamail.JavaMailUtil.prepareMessage;
+import javatutorial.javamail.JavaMailUtil;
 
 public class JavaMailUtil {
     public static void sendMail(String recepient) throws Exception{
@@ -43,7 +43,9 @@ public class JavaMailUtil {
             message.setFrom(new InternetAddress(myAccEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("My first Email from java app");
-            message.setText("Salutari, \n tocmai ce ai primit primul meu mail trimis dintr-o aplicatie java");
+            ///message.setText("Salutari, \n tocmai ce ai primit primul meu mail trimis dintr-o aplicatie java");
+            //message.setContent();
+
             return message;
         } catch (Exception ex){
             Logger.getLogger(JavaMailUtil.class.getName()).log(Level.SEVERE,null,ex);
