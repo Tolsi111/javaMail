@@ -9,7 +9,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 //import static javatutorial.javamail.JavaMailUtil.prepareMessage;
-import javatutorial.javamail.JavaMailUtil;
+import javatutorial.javamail.ThisShouldBeSent;
 
 public class JavaMailUtil {
     public static void sendMail(String recepient) throws Exception{
@@ -44,7 +44,7 @@ public class JavaMailUtil {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("My first Email from java app");
             ///message.setText("Salutari, \n tocmai ce ai primit primul meu mail trimis dintr-o aplicatie java");
-            //message.setContent();
+            message.setContent(ThisShouldBeSent.mesaj,"text/html");
 
             return message;
         } catch (Exception ex){
