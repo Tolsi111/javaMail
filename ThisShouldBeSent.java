@@ -1,6 +1,34 @@
 package javatutorial.javamail;
 
+import org.jsoup.Jsoup;
+
+import javax.swing.text.Document;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class ThisShouldBeSent {
+
+    /*
+    static StringBuilder contentBuilder = new StringBuilder();
+    BufferedReader in;
+    {
+        try {
+            in = new BufferedReader(new FileReader("fileToBeSent.html"));
+            String str;
+            while ((str = in.readLine()) != null){
+                System.out.println(str);/////this is for testing
+                contentBuilder.append(str);
+            }
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    static String content = contentBuilder.toString();
+
+    */
     static String mesaj = new String("\n" +
             "<!DOCTYPE html>\n" +
             "<html>\n" +
@@ -22,4 +50,5 @@ public class ThisShouldBeSent {
             "</body>\n" +
             "\n" +
             "</html>");
+
 }
