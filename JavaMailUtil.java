@@ -33,7 +33,6 @@ public class JavaMailUtil {
         });
 
         Message message = prepareMessage(session, myAccEmail, recepient);
-
         Transport.send(message);
         System.out.println("Message sent succesfully");
     }
@@ -44,7 +43,8 @@ public class JavaMailUtil {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("My first Email from java app");
             ///message.setText("Salutari, \n tocmai ce ai primit primul meu mail trimis dintr-o aplicatie java");
-            message.setContent(ThisShouldBeSent.mesaj,"text/html");
+            ThisShouldBeSent plm = new ThisShouldBeSent();
+            message.setContent(plm.content,"text/html");
 
             return message;
         } catch (Exception ex){

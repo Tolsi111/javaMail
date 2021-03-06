@@ -1,14 +1,50 @@
 package javatutorial.javamail;
 
-import org.jsoup.Jsoup;
-
-import javax.swing.text.Document;
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.Scanner;
 
 public class ThisShouldBeSent {
+
+    public String content = "";
+    public ThisShouldBeSent() throws FileNotFoundException {
+        File fileToBeSent = new File("C:\\Users\\bacil\\IdeaProjects\\Tutorial\\src\\javatutorial\\javamail\\fileToBeSent.html");
+        Scanner myReader = new Scanner(fileToBeSent);
+        while (myReader.hasNextLine()){
+            content += myReader.nextLine();
+        }
+        myReader.close();
+
+    }
+    /*public String getHtml() throws FileNotFoundException {
+        File fileToBeSent = new File("fileToBeSent.html");
+        Scanner myReader = new Scanner(fileToBeSent);
+        while (myReader.hasNextLine()){
+            content = myReader.nextLine();
+            System.out.println(content);
+        }
+        myReader.close();
+        return
+    }*/
+
+    //public getHtml()
+
+    /*
+    public static void main(String[] args) {
+        try {
+            File fileToBeSent = new File("fileToBeSent.html");
+            Scanner myReader = new Scanner(fileToBeSent);
+            while (myReader.hasNextLine()){
+                String content = myReader.nextLine();
+                System.out.println(content);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e){
+            System.out.println("An error occured");
+            e.printStackTrace();
+        }
+    }
+    */
 
     /*
     static StringBuilder contentBuilder = new StringBuilder();
@@ -29,6 +65,7 @@ public class ThisShouldBeSent {
     static String content = contentBuilder.toString();
 
     */
+    /*
     static String mesaj = new String("\n" +
             "<!DOCTYPE html>\n" +
             "<html>\n" +
@@ -50,5 +87,5 @@ public class ThisShouldBeSent {
             "</body>\n" +
             "\n" +
             "</html>");
-
+    */
 }
