@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javatutorial.javamail.ThisShouldBeSent;
 
 public class JavaMailUtil {
-    public static void sendMail(String recepient) throws Exception{
+    public static void sendMail(String recepient) throws Exception{///I could add here recepientName
         System.out.println("Sending message...");
 
         Properties properties = new Properties();
@@ -24,7 +24,6 @@ public class JavaMailUtil {
 
         String myAccEmail = "andreibacilatest@gmail.com";
         String myPassword = "Laptedecapra123";
-        ///ExtendedSSLSession session = ExtendedSSLSession.getInstance() ;
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -32,7 +31,7 @@ public class JavaMailUtil {
             }
         });
 
-        Message message = prepareMessage(session, myAccEmail, recepient);
+        Message message = prepareMessage(session, myAccEmail, recepient);///recepientName would be here too
         Transport.send(message);
         System.out.println("Message sent succesfully");
     }
@@ -41,10 +40,10 @@ public class JavaMailUtil {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("My first Email from java app");
-            ///message.setText("Salutari, \n tocmai ce ai primit primul meu mail trimis dintr-o aplicatie java");
-            ThisShouldBeSent plm = new ThisShouldBeSent();
-            message.setContent(plm.content,"text/html");
+
+            message.setSubject("My html page");
+            ThisShouldBeSent idk = new ThisShouldBeSent();///recepientName would be here too
+            message.setContent(idk.content,"text/html");
 
             return message;
         } catch (Exception ex){
