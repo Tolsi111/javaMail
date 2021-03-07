@@ -8,11 +8,10 @@ import javax.net.ssl.ExtendedSSLSession;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import static javatutorial.javamail.JavaMailUtil.prepareMessage;
 import javatutorial.javamail.ThisShouldBeSent;
 
 public class JavaMailUtil {
-    public static void sendMail(String recepient) throws Exception{///I could add here recepientName
+    public static void sendMail(String recepient, String recepientName) throws Exception{
         System.out.println("Sending message...");
 
         Properties properties = new Properties();
@@ -31,18 +30,18 @@ public class JavaMailUtil {
             }
         });
 
-        Message message = prepareMessage(session, myAccEmail, recepient);///recepientName would be here too
+        Message message = prepareMessage(session, myAccEmail, recepient, recepientName);
         Transport.send(message);
         System.out.println("Message sent succesfully");
     }
-    private static Message prepareMessage(Session session, String myAccEmail, String recepient){
+    private static Message prepareMessage(Session session, String myAccEmail, String recepient, String recepientName){
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
 
             message.setSubject("My html page");
-            ThisShouldBeSent idk = new ThisShouldBeSent();///recepientName would be here too
+            ThisShouldBeSent idk = new ThisShouldBeSent(recepientName);
             message.setContent(idk.content,"text/html");
 
             return message;

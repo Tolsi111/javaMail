@@ -7,12 +7,13 @@ import java.util.Scanner;
 public class ThisShouldBeSent {
 
     public String content = "";
-    public ThisShouldBeSent() throws FileNotFoundException {///this function should have a variable recepientName
+    public ThisShouldBeSent(String recepientName) throws FileNotFoundException {
         File fileToBeSent = new File("C:\\Users\\bacil\\IdeaProjects\\Tutorial\\src\\javatutorial\\javamail\\fileToBeSent.html");
         Scanner myReader = new Scanner(fileToBeSent);
-        while (myReader.hasNextLine()){///use somehow recepientName heres
+        while (myReader.hasNextLine()){
             content += myReader.nextLine();
         }
+        content =  content.replace("$name$",recepientName);
         myReader.close();
 
     }
