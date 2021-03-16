@@ -1,14 +1,11 @@
 package javatutorial.javamail;
 
-import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.net.ssl.ExtendedSSLSession;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javatutorial.javamail.ThisShouldBeSent;
 
 public class JavaMailUtil {
     public static void sendMail(String recepient, String recepientName) throws Exception{
@@ -41,7 +38,8 @@ public class JavaMailUtil {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
 
             message.setSubject("My html page");
-            ThisShouldBeSent idk = new ThisShouldBeSent(recepientName);
+
+            ContentBuilder idk = new ContentBuilder(recepientName);
             message.setContent(idk.content,"text/html");
 
             return message;

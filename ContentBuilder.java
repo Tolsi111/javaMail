@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class ThisShouldBeSent {
+public class ContentBuilder {
 
     public String content = "";
-    public ThisShouldBeSent(String recepientName) throws FileNotFoundException {
+    public ContentBuilder(String recepientName) throws FileNotFoundException {
         File fileToBeSent = new File("C:\\Users\\bacil\\IdeaProjects\\Tutorial\\src\\javatutorial\\javamail\\fileToBeSent.html");
         Scanner myReader = new Scanner(fileToBeSent);
         while (myReader.hasNextLine()){
